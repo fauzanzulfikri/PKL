@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -13,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::All();
+        return view('home.user.index', compact(['user']));
     }
 
     /**
@@ -23,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('home.user.tambah');
     }
 
     /**
@@ -34,7 +36,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create([
+            'id_petugas'=> $request->id_petugas,
+            'nama'=> $request->nama,
+            'no_telp'=> $request->no_telp,
+            'username'=> $request->username,
+            'password'=> $request->password,
+            'jabatan'=> $request->jabatan,
+            $request->except(['_token']),
+        ]);return redirect('/user');
     }
 
     /**
@@ -43,9 +53,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_petugas)
     {
-        //
+        $user = User::find($id_petugas);
+        return view('home.user.edit',compact(['user']));
     }
 
     /**
@@ -56,7 +67,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -66,9 +77,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_petugas)
     {
-        //
+        $user = User::find($id_petugas);
+        $user->update([
+        'id_petugas'=> $request->id_petugas,
+        'nama'=> $request->nama,
+        'no_telp'=> $request->no_telp,
+        'username'=> $request->username,
+        'password'=> $request->password,
+        'jabatan'=> $request->jabatan,
+        $request->except(['_token']),
+    ]);return redirect('/user');
     }
 
     /**
@@ -79,6 +99,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id_petugas);
+        $user->delete();
+        return redirect('/user');
     }
 }

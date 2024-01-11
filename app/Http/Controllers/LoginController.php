@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Buku;
 
 use Illuminate\Http\Request;
+use Alert;
+use Illuminate\Support\Facades\Auth;
 
-class BukuController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,7 @@ class BukuController extends Controller
      */
     public function index()
     {
-        $buku = Buku::all();
-        return view('home.buku.index', compact(['buku']));
+        return view('login');
     }
 
     /**
@@ -23,10 +23,13 @@ class BukuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function login(Request $request)
     {
-        $buku = Buku::all();
-        return view('home.buku.tambah', compact(['buku']));
+        if(Auth::attempt(['username','password'])){
+            return redirect('/user');
+        }else{
+            return redirect('/login')->with('error','Maaf Akun Yang Anda Masukan Salah!!');
+        }
     }
 
     /**
@@ -35,18 +38,10 @@ class BukuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function logout()
     {
-        Buku::create([
-            'judul'=> $request->judul,
-            'penulis'=> $request->penulis,
-            'penerbit'=> $request->penerbit,
-            'genre'=> $request->genre,
-            'sinopsis'=> $request->sinopsis,
-            'status'=> $request->status,
-            'stok'=> $request->stok,
-            $request->except(['_token']),
-        ]);return redirect('/buku');
+        Auth::logout();
+        return view('login');
     }
 
     /**
@@ -57,8 +52,7 @@ class BukuController extends Controller
      */
     public function show($id)
     {
-        $buku = Buku::find($id);
-        return view('home.buku.edit',compact(['buku']));
+        //
     }
 
     /**
@@ -81,17 +75,7 @@ class BukuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $buku = Buku::find($id);
-        $buku->update([
-            'judul'=> $request->judul,
-            'penulis'=> $request->penulis,
-            'penerbit'=> $request->penerbit,
-            'genre'=> $request->genre,
-            'sinopsis'=> $request->sinopsis,
-            'status'=> $request->status,
-            'stok'=> $request->stok,
-            $request->except(['_token']),
-        ]);return redirect('/buku');
+        //
     }
 
     /**
@@ -102,8 +86,6 @@ class BukuController extends Controller
      */
     public function destroy($id)
     {
-        $buku = Buku::find($id);
-        $buku->delete();
-        return redirect('/buku');
+        //
     }
 }

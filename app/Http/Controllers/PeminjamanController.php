@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Peminjaman;
+use App\Models\Siswa;
+use App\Models\User;
 
 class PeminjamanController extends Controller
 {
@@ -13,7 +16,8 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        //
+        $peminjaman = Peminjaman::all();
+        return view('home.peminjaman.index', compact(['peminjaman']));
     }
 
     /**
@@ -23,7 +27,9 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        //
+        $siswa = Siswa::all();
+        $user = User::all();
+        return view('home.peminjaman.tambah', compact(['siswa','user']));
     }
 
     /**
@@ -34,7 +40,13 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Peminjaman::create([
+            'nis'=>$request->nis,
+            'id_petugas'=>$request->id_petugas,
+            'tgl_pinjam'=>$request->tgl_pinjam,
+            $request->except('_token'),
+        ]);
+        return redirect('/peminjaman');
     }
 
     /**
@@ -45,7 +57,10 @@ class PeminjamanController extends Controller
      */
     public function show($id)
     {
-        //
+        $siswa = Siswa::all();
+        $user = User::all();
+        $peminjaman = Peminjaman::find($id);
+        return view('home.peminjaman.edit', compact(['siswa','user','peminjaman']));
     }
 
     /**
@@ -68,7 +83,14 @@ class PeminjamanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $peminjaman = Peminjaman::find($id);
+        $peminjaman ->update([
+            'nis'=>$request->nis,
+            'id_petugas'=>$request->id_petugas,
+            'tgl_pinjam'=>$request->tgl_pinjam,
+            $request->except('_token'),
+        ]);
+        return redirect('/peminjaman');
     }
 
     /**
@@ -79,6 +101,8 @@ class PeminjamanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $peminjaman = Peminjaman::find($id);
+        $peminjaman->delete();
+        return redirect('/peminjaman');
     }
 }

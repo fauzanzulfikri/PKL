@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kelas;
+use App\Models\Siswa;
 
 class SiswaController extends Controller
 {
@@ -13,7 +15,8 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        //
+        $siswa = Siswa::All();
+        return view('home.siswa.index', compact(['siswa']));
     }
 
     /**
@@ -23,7 +26,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        //
+        $kelas = Kelas::all();
+        return view('home.siswa.tambah', compact(['kelas']));
     }
 
     /**
@@ -34,7 +38,14 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Siswa::create([
+            'nis'=>$request->nis,
+            'nama'=>$request->nama,
+            'no_telp'=>$request->no_telp,
+            'id_kelas'=>$request->id_kelas,
+            $request->except('_token'),
+        ]);
+        return redirect('/siswa');
     }
 
     /**
@@ -43,9 +54,11 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nis)
     {
-        //
+        $siswa = Siswa::find($nis);
+        $kelas = Kelas::all();
+        return view('home.siswa.edit',compact(['siswa','kelas']));
     }
 
     /**
@@ -66,9 +79,16 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $nis)
     {
-        //
+        $siswa = Siswa::find($nis);
+        $siswa->update([
+            'nis'=>$request->nis,
+            'nama'=>$request->nama,
+            'no_telp'=>$request->no_telp,
+            'id_kelas'=>$request->id_kelas,
+            $request->except('_token'),
+    ]);return redirect('/siswa');
     }
 
     /**
@@ -77,8 +97,10 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nis)
     {
-        //
+        $siswa = Siswa::find($nis);
+        $siswa->delete();
+        return redirect('/siswa');
     }
 }

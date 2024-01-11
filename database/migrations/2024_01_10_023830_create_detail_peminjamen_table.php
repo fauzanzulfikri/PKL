@@ -14,7 +14,7 @@ class CreateDetailPeminjamenTable extends Migration
     public function up()
     {
         Schema::create('detail_peminjamen', function (Blueprint $table) {
-            $table->char('id_detail',15)->primaryKey();
+            $table->id();
             $table->char('kode_buku',15);
             $table->integer('jumlah');
             $table->text('keterangan');

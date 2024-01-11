@@ -12,24 +12,21 @@
                             <h4>Edit Data User</h4>
                         </div>
                         <div class="card-body">
-                            <form action="/user/{{$user->id_petugas}}/update" method="post">
+                            <form action="/user/{{$user->id}}/update" method="post">
                             @csrf
 
-                            <div class="form-group">
-                                <label for="">Id</label>
-                                <input type="text" class="form-control" value="{{$user->id_petugas}}" name="id_petugas" placeholder="Masukan Untuk Id" required>
-                            </div>
+
                             <div class="form-group">
                                 <label for="">Nama</label>
                                 <input type="text" class="form-control" value="{{$user->nama}}" name="nama" placeholder="Masukan Untuk Nama" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Username</label>
-                                <input type="text" class="form-control" value="{{$user->username>}}" name="username" placeholder="Masukan Untuk Username" required>
+                                <input type="text" class="form-control" value="{{$user->username}}" name="username" placeholder="Masukan Untuk Username" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Password</label>
-                                <input type="password" class="form-control" value="{{$user->password}}" name="pasword" placeholder="Masukan Untuk Password" required>
+                                <input type="password" class="form-control" value="{{$user->password}}" name="password" placeholder="Masukan Untuk Password" required>
                             </div>
                             <div class="form-group">
                                 <label for="">No Telepon</label>

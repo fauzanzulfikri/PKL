@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Buku;
+use App\Models\Peminjaman;
+use App\Models\DetailPeminjaman;
 
 class DetailPeminjamanController extends Controller
 {
@@ -13,7 +16,8 @@ class DetailPeminjamanController extends Controller
      */
     public function index()
     {
-        //
+        $dpeminjaman = DetailPeminjaman::all();
+        return view('home.detailpeminjaman.index', compact(['dpeminjaman']));
     }
 
     /**
@@ -23,7 +27,9 @@ class DetailPeminjamanController extends Controller
      */
     public function create()
     {
-        //
+        $buku = Buku::all();
+        $peminjaman = Peminjaman::all();
+        return view('home.detailpeminjaman.tambah', compact(['buku','peminjaman']));
     }
 
     /**
@@ -34,7 +40,14 @@ class DetailPeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DetailPeminjaman::create([
+            'kode_buku'=>$request->kode_buku,
+            'jumlah'=>$request->jumlah,
+            'keterangan'=>$request->keterangan,
+            'id_peminjaman'=>$request->id_peminjaman,
+            $request->except('_token'),
+        ]);
+        return redirect('/dpeminjaman');
     }
 
     /**
@@ -45,7 +58,10 @@ class DetailPeminjamanController extends Controller
      */
     public function show($id)
     {
-        //
+        $buku = Buku::all();
+        $peminjaman = Peminjaman::all();
+        $dpeminjaman = DetailPeminjaman::find($id);
+        return view('home.detailpeminjaman.edit', compact(['buku','peminjaman','dpeminjaman']));
     }
 
     /**
@@ -68,7 +84,15 @@ class DetailPeminjamanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dpeminjaman = DetailPeminjaman::find($id);
+        $dpeminjaman->update([
+            'kode_buku'=>$request->kode_buku,
+            'jumlah'=>$request->jumlah,
+            'keterangan'=>$request->keterangan,
+            'id_peminjaman'=>$request->id_peminjaman,
+            $request->except('_token'),
+        ]);
+        return redirect('/dpeminjaman');
     }
 
     /**
@@ -79,6 +103,8 @@ class DetailPeminjamanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dpeminjaman = DetailPeminjaman::find($id);
+        $dpeminjaman->delete();
+        return redirect('/dpeminjaman');
     }
 }

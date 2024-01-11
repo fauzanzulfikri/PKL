@@ -19,7 +19,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/">
                 <i class="mdi mdi-home menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
@@ -51,32 +51,39 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="/siswa">
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                <span class="menu-title">Forms</span>
+                <span class="menu-title">Data Siswa</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" href="/kelas">
                 <i class="mdi mdi-chart-bar menu-icon"></i>
-                <span class="menu-title">Charts</span>
+                <span class="menu-title">Data Kelas</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="/buku">
                 <i class="mdi mdi-table-large menu-icon"></i>
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">Data Buku</span>
             </a>
         </li>
         <li class="nav-item">
-            <span class="nav-link" href="#">
-                <span class="menu-title">Docs</span>
-            </span>
+            <a class="nav-link" href="/peminjaman">
+                <i class="mdi mdi-table-large menu-icon"></i>
+                <span class="menu-title">Data Peminjaman</span>
+            </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="https://www.bootstrapdash.com/demo/breeze-free/documentation/documentation.html">
+            <a class="nav-link" href="/pengembalian">
                 <i class="mdi mdi-file-document-box menu-icon"></i>
-                <span class="menu-title">Documentation</span>
+                <span class="menu-title">Data Pengembalian</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/dpeminjaman">
+                <i class="mdi mdi-file-document-box menu-icon"></i>
+                <span class="menu-title">Detail Peminjaman</span>
             </a>
         </li>
         <li class="nav-item sidebar-actions">

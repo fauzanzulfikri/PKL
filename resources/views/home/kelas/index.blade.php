@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Halaman User')
+@section('title','Halaman Kelas')
 @section('content')
 <div class="content-wrapper">
     <section class="content">
@@ -8,8 +8,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Kelola Data User</h4>
-                            <a href="/user/tambah" class="btn btn-primary">Tambah Data</a>
+                            <h4>Kelola Data Kelas</h4>
+                            <a href="/kelas/tambah" class="btn btn-primary">Tambah Data</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -17,25 +17,21 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nama</th>
-                                            <th>No Telepon</th>
-                                            <th>Jabatan</th>
-                                            <th>Username</th>
+                                            <th>Kelas</th>
+                                            <th>Jurusan</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($user as $u)
+                                        @foreach ($kelas as $k)
                                                 <tr>
-                                                    <td>{{$u->id}}</td>
-                                                    <td>{{$u->nama}}</td>
-                                                    <td>{{$u->no_telp}}</td>
-                                                    <td>{{$u->jabatan}}</td>
-                                                    <td>{{$u->username}}</td>
+                                                    <td>{{$k->id}}</td>
+                                                    <td>{{$k->nama_kelas}}</td>
+                                                    <td>{{$k->jurusan}}</td>
                                                     <td>
 
-                                                    <a href="/user/{{$u->id}}/edit" class="btn btn-warning">Edit</a>
-                                                    <a href="/user/{{$u->id}}/hapus" class="btn btn-danger" onclick="return confirm('Yakin diHapus?')">Hapus</a>
+                                                    <a href="/kelas/{{$k->id}}/edit" class="btn btn-warning">Edit</a>
+                                                    <a href="/kelas/{{$k->id}}/hapus" class="btn btn-danger" onclick="return confirm('Yakin diHapus?')">Hapus</a>
                                                 </td>
                                                 </tr>
                                         @endforeach

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Halaman User')
+@section('title','Halaman Siswa')
 @section('content')
 <div class="content-wrapper">
     <section class="content">
@@ -8,34 +8,32 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Kelola Data User</h4>
-                            <a href="/user/tambah" class="btn btn-primary">Tambah Data</a>
+                            <h4>Kelola Data Siswa</h4>
+                            <a href="/siswa/tambah" class="btn btn-primary">Tambah Data</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-hover table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>NIS</th>
                                             <th>Nama</th>
                                             <th>No Telepon</th>
-                                            <th>Jabatan</th>
-                                            <th>Username</th>
+                                            <th>Kelas</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($user as $u)
+                                        @foreach ($siswa as $s)
                                                 <tr>
-                                                    <td>{{$u->id}}</td>
-                                                    <td>{{$u->nama}}</td>
-                                                    <td>{{$u->no_telp}}</td>
-                                                    <td>{{$u->jabatan}}</td>
-                                                    <td>{{$u->username}}</td>
+                                                    <td>{{$s->nis}}</td>
+                                                    <td>{{$s->nama}}</td>
+                                                    <td>{{$s->no_telp}}</td>
+                                                    <td>{{$s->Kelas->nama_kelas}}</td>
                                                     <td>
 
-                                                    <a href="/user/{{$u->id}}/edit" class="btn btn-warning">Edit</a>
-                                                    <a href="/user/{{$u->id}}/hapus" class="btn btn-danger" onclick="return confirm('Yakin diHapus?')">Hapus</a>
+                                                    <a href="/siswa/{{$s->nis}}/edit" class="btn btn-warning">Edit</a>
+                                                    <a href="/siswa/{{$s->nis}}/hapus" class="btn btn-danger" onclick="return confirm('Yakin diHapus?')">Hapus</a>
                                                 </td>
                                                 </tr>
                                         @endforeach

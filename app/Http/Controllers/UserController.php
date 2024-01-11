@@ -37,11 +37,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         User::create([
-            'id_petugas'=> $request->id_petugas,
             'nama'=> $request->nama,
             'no_telp'=> $request->no_telp,
             'username'=> $request->username,
-            'password'=> $request->password,
+            'password'=> bcrypt($request->password),
             'jabatan'=> $request->jabatan,
             $request->except(['_token']),
         ]);return redirect('/user');
@@ -53,7 +52,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_petugas)
+    public function show($id)
     {
         $user = User::find($id_petugas);
         return view('home.user.edit',compact(['user']));
@@ -77,15 +76,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_petugas)
+    public function update(Request $request, $id)
     {
-        $user = User::find($id_petugas);
+        $user = User::find($id);
         $user->update([
-        'id_petugas'=> $request->id_petugas,
         'nama'=> $request->nama,
         'no_telp'=> $request->no_telp,
         'username'=> $request->username,
-        'password'=> $request->password,
+        'password'=> bcrypt($request->password),
         'jabatan'=> $request->jabatan,
         $request->except(['_token']),
     ]);return redirect('/user');
@@ -99,7 +97,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id_petugas);
+        $user = User::find($id);
         $user->delete();
         return redirect('/user');
     }

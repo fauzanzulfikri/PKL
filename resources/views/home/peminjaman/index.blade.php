@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Halaman User')
+@section('title','Halaman Peminjaman')
 @section('content')
 <div class="content-wrapper">
     <section class="content">
@@ -8,8 +8,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Kelola Data User</h4>
-                            <a href="/user/tambah" class="btn btn-primary">Tambah Data</a>
+                            <h4>Kelola Data Peminjaman</h4>
+                            <a href="/peminjaman/tambah" class="btn btn-primary">Tambah Data</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -17,25 +17,22 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nama</th>
-                                            <th>No Telepon</th>
-                                            <th>Jabatan</th>
-                                            <th>Username</th>
+                                            <th>Nis</th>
+                                            <th>User</th>
+                                            <th>Tanggal Pinjam</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($user as $u)
+                                        @foreach ($peminjaman as $p)
                                                 <tr>
-                                                    <td>{{$u->id}}</td>
-                                                    <td>{{$u->nama}}</td>
-                                                    <td>{{$u->no_telp}}</td>
-                                                    <td>{{$u->jabatan}}</td>
-                                                    <td>{{$u->username}}</td>
+                                                    <td>{{$p->id}}</td>
+                                                    <td>{{$p->Siswa->nis}}</td>
+                                                    <td>{{$p->User->id}}</td>
+                                                    <td>{{$p->tgl_pinjam}}</td>
                                                     <td>
-
-                                                    <a href="/user/{{$u->id}}/edit" class="btn btn-warning">Edit</a>
-                                                    <a href="/user/{{$u->id}}/hapus" class="btn btn-danger" onclick="return confirm('Yakin diHapus?')">Hapus</a>
+                                                    <a href="/peminjaman/{{$p->id}}/edit" class="btn btn-warning">Edit</a>
+                                                    <a href="/peminjaman/{{$p->id}}/hapus" class="btn btn-danger" onclick="return confirm('Yakin diHapus?')">Hapus</a>
                                                 </td>
                                                 </tr>
                                         @endforeach

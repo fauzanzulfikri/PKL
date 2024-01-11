@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kelas;
 
 class KelasController extends Controller
 {
@@ -13,7 +14,8 @@ class KelasController extends Controller
      */
     public function index()
     {
-        //
+        $kelas = Kelas::All();
+        return view('home.kelas.index', compact(['kelas']));
     }
 
     /**
@@ -23,7 +25,7 @@ class KelasController extends Controller
      */
     public function create()
     {
-        //
+        return view('home.kelas.tambah');
     }
 
     /**
@@ -34,7 +36,12 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Kelas::create([
+            'nama_kelas'=>$request->nama_kelas,
+            'jurusan'=>$request->jurusan,
+            $request->except('_token'),
+        ]);
+        return redirect('/kelas');
     }
 
     /**
@@ -45,7 +52,8 @@ class KelasController extends Controller
      */
     public function show($id)
     {
-        //
+        $kelas = Kelas::find($id);
+        return view('home.kelas.edit',compact(['kelas']));
     }
 
     /**
@@ -68,7 +76,13 @@ class KelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kelas = Kelas::find($id);
+        $kelas->update([
+            'nama_kelas'=>$request->nama_kelas,
+            'jurusan'=>$request->jurusan,
+            $request->except('_token'),
+        ]);
+        return redirect('/kelas');
     }
 
     /**
@@ -79,6 +93,8 @@ class KelasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kelas = Kelas::all($id);
+        $kelas->delete();
+        return redirect('/kelas');
     }
 }

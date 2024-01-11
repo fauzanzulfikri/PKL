@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pengembalian;
+use App\Models\Peminjaman;
 
 class PengembalianController extends Controller
 {
@@ -13,7 +15,8 @@ class PengembalianController extends Controller
      */
     public function index()
     {
-        //
+        $pengembalian = Pengembalian::all();
+        return view('home.pengembalian.index', compact(['pengembalian']));
     }
 
     /**
@@ -23,7 +26,8 @@ class PengembalianController extends Controller
      */
     public function create()
     {
-        //
+        $peminjaman = Peminjaman::all();
+        return view('home.pengembalian.tambah', compact(['peminjaman']));
     }
 
     /**
@@ -34,7 +38,13 @@ class PengembalianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pengembalian::create([
+            'tgl_kembali'=>$request->tgl_kembali,
+            'denda'=>$request->denda,
+            'id_peminjaman'=>$request->id_peminjaman,
+            $request->except('_token'),
+        ]);
+        return redirect('/pengembalian');
     }
 
     /**
@@ -45,7 +55,9 @@ class PengembalianController extends Controller
      */
     public function show($id)
     {
-        //
+        $peminjaman = Peminjaman::all();
+        $pengembalian = Pengembalian::find($id);
+        return view('home.pengembalian.edit', compact(['pengembalian','peminjaman']));
     }
 
     /**
@@ -68,7 +80,14 @@ class PengembalianController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pengembalian = Pengembalian::find($id);
+        $pengembalian ->update([
+            'tgl_kembali'=>$request->tgl_kembali,
+            'denda'=>$request->denda,
+            'id_peminjaman'=>$request->id_peminjaman,
+            $request->except('_token'),
+        ]);
+        return redirect('/pengembalian');
     }
 
     /**
@@ -79,6 +98,8 @@ class PengembalianController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pengembalian = Pengembalian::find($id);
+        $pengembalian->delete();
+        return redirect('/pengembalian');
     }
 }

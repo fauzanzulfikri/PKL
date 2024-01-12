@@ -9,6 +9,7 @@ use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\DetailPeminjamanController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DasboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,3 +76,5 @@ Route::get('/',[LoginController::class,'index']);
 Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/PostLogin',[LoginController::class,'login']);
 Route::get('/logout',[LoginController::class,'logout']);
+
+Route::get('/dashboard',[DasboardController::class,'index']);

@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Breeze Admin</title>
+    <title>Perpustakaan Sekolah</title>
     <link rel="stylesheet" href="{{asset('/assets/vendors/mdi/css/materialdesignicons.min.css')}}" />
     <link rel="stylesheet" href="{{asset('/assets/vendors/flag-icon-css/css/flag-icon.min.css')}}" />
     <link rel="stylesheet" href="{{asset('/assets/vendors/css/vendor.bundle.base.css')}}" />
@@ -50,7 +50,7 @@
                         <li class="nav-item nav-profile dropdown border-0">
                             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
                                 <img class="nav-profile-img mr-2" alt="" src="{{asset('/assets/images/faces/face1.jpg')}}" />
-                                <span class="profile-name">Henry Klein</span>
+                                <span class="profile-name">{{Auth()->User()->nama}}</span>
                             </a>
                             <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
                                 <a class="dropdown-item" href="#">

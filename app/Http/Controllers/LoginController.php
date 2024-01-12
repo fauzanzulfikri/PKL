@@ -25,8 +25,8 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        if(Auth::attempt(['username','password'])){
-            return redirect('/user');
+        if(Auth::attempt($request->only('username','password'))){
+            return redirect('/dashboard');
         }else{
             return redirect('/login')->with('error','Maaf Akun Yang Anda Masukan Salah!!');
         }

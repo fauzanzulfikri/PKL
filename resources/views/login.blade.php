@@ -34,7 +34,7 @@
                             <h4>Hello! let's get started</h4>
                             <h6 class="font-weight-light">Sign in to continue.</h6>
                             <form class="pt-3" action="/PostLogin" method="POST">
-                                @csrf
+                                {{csrf_field()}}
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" placeholder="Username" name="username">
                                 </div>
@@ -45,6 +45,11 @@
                                     <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
                                 </div>
                             </form>
+                            @if( session('error'))
+                            <div class="alert alert-danger">
+                                {{session('error')}}
+                              </div>
+                              @endif
                         </div>
                     </div>
                 </div>

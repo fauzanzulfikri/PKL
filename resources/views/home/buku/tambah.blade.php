@@ -27,7 +27,7 @@
                                     <label for="">Genre</label>
                                     <input type="text" class="form-control" name="genre" placeholder="Masukkan Untuk Genre" required>
                                 </div>
-                                <div class="from-group">
+                                <div class="form-group">
                                     <label for="">Sinopsis</label>
                                     <input type="text" class="form-control" name="sinopsis" placeholder="Masukkan Untuk Sinopsis" required>
                                 </div>

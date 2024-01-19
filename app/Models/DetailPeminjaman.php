@@ -22,4 +22,5 @@ class DetailPeminjaman extends Model
     {
       return $this->belongsTo(Peminjaman::class, 'id_peminjaman', 'id');
     }
+
 }

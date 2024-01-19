@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Peminjaman;
 use App\Models\Siswa;
 use App\Models\User;
+use App\Models\DetailPeminjaman;
 
 class PeminjamanController extends Controller
 {
@@ -44,6 +45,7 @@ class PeminjamanController extends Controller
             'nis'=>$request->nis,
             'id_petugas'=>$request->id_petugas,
             'tgl_pinjam'=>$request->tgl_pinjam,
+            'tgl_kembali'=>$request->tgl_kembali,
             $request->except('_token'),
         ]);
         return redirect('/peminjaman');
@@ -88,6 +90,7 @@ class PeminjamanController extends Controller
             'nis'=>$request->nis,
             'id_petugas'=>$request->id_petugas,
             'tgl_pinjam'=>$request->tgl_pinjam,
+            'tgl_kembali'=>$request->tgl_kembali,
             $request->except('_token'),
         ]);
         return redirect('/peminjaman');
@@ -104,5 +107,11 @@ class PeminjamanController extends Controller
         $peminjaman = Peminjaman::find($id);
         $peminjaman->delete();
         return redirect('/peminjaman');
+    }
+    public function struk($id)
+    {
+        $peminjaman = Peminjaman::find($id);
+        $detail = DetailPeminjaman::select()->where('id_peminjaman', $id)->get(); 
+        return view('home.peminjaman.struk',compact(['peminjaman'], 'detail'));
     }
 }

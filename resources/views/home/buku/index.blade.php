@@ -5,13 +5,13 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
+                <div class="col-20">
                     <div class="card">
                         <div class="card-header"><h1>Halaman Buku</h1>
                         <a href="/buku/tambah" class="btn btn-primary">Tambah Data</a></div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-hover table-bordered">
+                                <table class="table table-striped table-hover table-bordered" id="example">
                                     <thead>
                                         <tr>
                                             <th>Kode Buku</th>

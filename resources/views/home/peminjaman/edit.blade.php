@@ -36,6 +36,18 @@
                                 <label for="">Tanggal Pinjam</label>
                                 <input type="date" class="form-control" value="{{$peminjaman->tgl_pinjam}}"  name="tgl_pinjam" placeholder="Masukan Untuk Tanggal Pinjam" required>
                             </div>
+                            <div class="form-group">
+                                <label for="">Tanggal Pengembalian</label>
+                                <input type="date" class="form-control" value="{{$peminjaman->tgl_kembali}}" name="tgl_kembali" placeholder="Masukan Untuk Tanggal Pinjam" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Status</label>
+                                <select name="status">
+                                    <option value="diproses">Di Proses</option>
+                                    <option value="dipinjam">Di Pinjam</option>
+                                    <option value="selesai">Selesai</option>
+                                </select>
+                            </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                             <a href="/peminjaman" class="btn btn-secondary">Cancel</a>
                         </form>

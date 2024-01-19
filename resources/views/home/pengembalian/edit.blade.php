@@ -16,8 +16,8 @@
                             @csrf
 
                             <div class="form-group">
-                                <label for="">Tanggal Kembali</label>
-                                <input type="date" class="form-control" value="{{$pengembalian->tgl_kembali}}" name="tgl_kembali" placeholder="Masukan Untuk Pengembalian" required>
+                                <label for="">Tanggal Pengembalian</label>
+                                <input type="date" class="form-control" value="{{$pengembalian->tgl_pengembalian}}" name="tgl_pengembalian" placeholder="Masukan Untuk Pengembalian" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Denda</label>

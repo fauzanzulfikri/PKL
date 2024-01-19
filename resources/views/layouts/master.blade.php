@@ -66,7 +66,7 @@
             <div class="main-panel">
                 <!-- Start:Content -->
                 
-                @yield('content');
+                @yield('content')
                 <!-- End:Content -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
@@ -105,7 +105,7 @@
 
     <script>
         $(document).ready(function() {
-            $('#dataTable').dataTable();
+            $('#example').dataTable();
         })
     </script>
 

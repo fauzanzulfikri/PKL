@@ -13,8 +13,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table
-                                    class="table table-primary">
+                                <table class="table table-striped table-hover table-bordered" id="example">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -27,12 +26,13 @@
                                         @foreach ($pengembalian as $kembali)
                                         <tr>
                                             <td>{{$kembali->id}}</td>
-                                            <td>{{$kembali->tgl_kembali}}</td>
-                                            <td>{{$kembali->denda}}</td>
+                                            <td>{{$kembali->tgl_pengembalian}}</td>
+                                            <td>Rp.{{number_format($kembali->denda)}}</td>
                                             <td>{{$kembali->Peminjaman->id}}</td>
                                             <td>
                                             <a href="/pengembalian/{{$kembali->id}}/edit" class="btn btn-warning">Edit</a>
                                             <a href="/pengembalian/{{$kembali->id}}/hapus" class="btn btn-danger" onclick="return confirm('Yakin diHapus?')">Hapus</a>
+                                            <a href="/pengembalian/{{$kembali->id}}/struk" target="_blank" class="btn btn-success"><span class="mdi mdi-file-document">Struk</span></a>
                                         </td>
                                         </tr>
                                 @endforeach

@@ -57,6 +57,7 @@ Route::post('/peminjaman/simpan',[PeminjamanController::class,'store']);
 Route::get('/peminjaman/{id}/edit',[PeminjamanController::class,'show']);
 Route::post('/peminjaman/{id}/update',[PeminjamanController::class,'update']);
 Route::get('/peminjaman/{id}/hapus',[PeminjamanController::class,'destroy']);
+Route::get('/peminjaman/{id}/struk',[PeminjamanController::class,'struk']);
 
 Route::get('/pengembalian',[PengembalianController::class, 'index']);
 Route::get('/pengembalian/tambah',[PengembalianController::class, 'create']);
@@ -64,6 +65,7 @@ Route::post('/pengembalian/simpan',[PengembalianController::class,'store']);
 Route::get('/pengembalian/{id}/edit',[PengembalianController::class,'show']);
 Route::post('/pengembalian/{id}/update',[PengembalianController::class,'update']);
 Route::get('/pengembalian/{id}/hapus',[PengembalianController::class,'destroy']);
+Route::get('/pengembalian/{id}/struk',[PengembalianController::class,'struk']);
 
 Route::get('/dpeminjaman',[DetailPeminjamanController::class, 'index']);
 Route::get('/dpeminjaman/tambah',[DetailPeminjamanController::class, 'create']);
@@ -71,6 +73,7 @@ Route::post('/dpeminjaman/simpan',[DetailPeminjamanController::class,'store']);
 Route::get('/dpeminjaman/{id}/edit',[DetailPeminjamanController::class,'show']);
 Route::post('/dpeminjaman/{id}/update',[DetailPeminjamanController::class,'update']);
 Route::get('/dpeminjaman/{id}/hapus',[DetailPeminjamanController::class,'destroy']);
+Route::get('/dpeminjaman/cetak',[DetailPeminjamanController::class,'cetak']);
 
 Route::get('/',[LoginController::class,'index']);
 Route::get('/login',[LoginController::class,'index'])->name('login');

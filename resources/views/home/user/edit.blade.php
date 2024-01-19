@@ -35,8 +35,8 @@
                             <div class="form-group">
                                 <label for="">Jabatan</label>
                                 <select name="jabatan" value="{{$user->jabatan}}" class="form-control">
+                                    <option value="superadmin">Super Admin</option>
                                     <option value="admin">Admin</option>
-                                    <option value="petugas">Petugas</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>

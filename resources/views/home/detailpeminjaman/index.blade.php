@@ -10,6 +10,7 @@
                         <div class="card-header">
                             <h4>Kelola Data Detail Peminjaman</h4>
                             <a href="/dpeminjaman/tambah" class="btn btn-primary">Tambah Data</a>
+                            <a href="/dpeminjaman/cetak" class="btn btn-success">Cetak <i class="mdi mdi-printer"></i></a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

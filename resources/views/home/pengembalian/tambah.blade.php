@@ -15,8 +15,8 @@
                             <form action="/pengembalian/simpan" method="post">
                             @csrf
                             <div class="form-group">
-                                <label for="">Tanggal Kembali</label>
-                                <input type="date" class="form-control" name="tgl_kembali" placeholder="Masukan Tanggal" required>
+                                <label for="">Tanggal Pengembalian</label>
+                                <input type="date" class="form-control" name="tgl_pengembalian" placeholder="Masukan Tanggal" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Denda</label>

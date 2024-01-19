@@ -62,12 +62,6 @@
                 <span class="menu-title">Data Pengembalian</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/dpeminjaman">
-                <i class="mdi mdi-file-document-box menu-icon"></i>
-                <span class="menu-title">Detail Peminjaman</span>
-            </a>
-        </li>
         <li class="nav-item sidebar-actions">
             <div class="nav-link">
                 <div class="mt-4">

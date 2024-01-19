@@ -39,7 +39,7 @@ class PengembalianController extends Controller
     public function store(Request $request)
     {
         Pengembalian::create([
-            'tgl_kembali'=>$request->tgl_kembali,
+            'tgl_pengembalian'=>$request->tgl_pengembalian,
             'denda'=>$request->denda,
             'id_peminjaman'=>$request->id_peminjaman,
             $request->except('_token'),
@@ -82,7 +82,7 @@ class PengembalianController extends Controller
     {
         $pengembalian = Pengembalian::find($id);
         $pengembalian ->update([
-            'tgl_kembali'=>$request->tgl_kembali,
+            'tgl_pengembalian'=>$request->tgl_pengembalian,
             'denda'=>$request->denda,
             'id_peminjaman'=>$request->id_peminjaman,
             $request->except('_token'),
@@ -101,5 +101,10 @@ class PengembalianController extends Controller
         $pengembalian = Pengembalian::find($id);
         $pengembalian->delete();
         return redirect('/pengembalian');
+    }
+    public function struk($id)
+    {
+        $pengembalian = Pengembalian::find($id);
+        return view('home.pengembalian.struk',compact(['pengembalian']));
     }
 }

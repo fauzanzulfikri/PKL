@@ -13,7 +13,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-hover table-bordered">
+                                <table class="table table-striped table-hover table-bordered" id="example">
                                     <thead>
                                         <tr>
                                             <th>NIS</th>

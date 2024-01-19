@@ -12,6 +12,8 @@ class Peminjaman extends Model
         'nis',
         'id_petugas',
         'tgl_pinjam',
+        'tgl_kembali',
+        'status',
     ];
 
     public function Siswa()

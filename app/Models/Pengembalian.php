@@ -9,7 +9,7 @@ class Pengembalian extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'tgl_kembali',
+        'tgl_pengembalian',
         'denda',
         'id_peminjaman',
      ];

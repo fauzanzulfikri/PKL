@@ -107,4 +107,9 @@ class DetailPeminjamanController extends Controller
         $dpeminjaman->delete();
         return redirect('/dpeminjaman');
     }
+    public function cetak()
+    {
+        $dpeminjaman = DetailPeminjaman::all();
+        return view('home.detailpeminjaman.cetak', compact(['dpeminjaman']));
+    }
 }

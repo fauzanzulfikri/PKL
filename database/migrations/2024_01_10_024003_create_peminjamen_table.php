@@ -18,6 +18,8 @@ class CreatePeminjamenTable extends Migration
             $table->integer('nis');
             $table->integer('id_petugas');
             $table->date('tgl_pinjam');
+            $table->date('tgl_kembali');
+            $table->enum('status',['diproses','dipinjam','selesai']);
             $table->timestamps();
         });
     }

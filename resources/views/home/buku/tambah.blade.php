@@ -9,7 +9,7 @@
                     <div class="card">
                         <div class="card-header"><h1>Halaman Tambah Buku</h1></div>
                         <div class="card-body">
-                            <form action="/buku/simpan" method="post">
+                            <form action="/buku/simpan" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="">Judul</label>
@@ -41,6 +41,10 @@
                                 <div class="form-group">
                                     <label for="">Stok</label>
                                     <input type="number" class="form-control" name="stok" id="" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Unggah Foto</label>
+                                    <input type="file" class="form-control" name="fotobuku" accept="image/*" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <button type="reset" class="btn btn-secondary">Cancel</button>

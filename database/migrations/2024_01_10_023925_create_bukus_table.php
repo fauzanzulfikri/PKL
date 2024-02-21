@@ -22,6 +22,7 @@ class CreateBukusTable extends Migration
             $table->text('sinopsis');
             $table->enum('status',['tak tersedia','tersedia']);
             $table->integer('stok');
+            $table->string('fotobuku',100);
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\Models\Buku;
 use App\Models\Peminjaman;
 use App\Models\DetailPeminjaman;
 
+
 class DetailPeminjamanController extends Controller
 {
     /**
@@ -40,12 +41,24 @@ class DetailPeminjamanController extends Controller
      */
     public function store(Request $request)
     {
+
+        $kode_buku = $request->kode_buku;
+        $kb = $kode_buku;
+        $buku = Buku::find($kb);
+
+        // $request->validate([
+        //     'kode_buku' => 'required|array',
+        //     'kode_buku.*' => 'exists:bukus,id', // Pastikan setiap ID buku ada di dalam tabel buku
+        // ]);
         DetailPeminjaman::create([
             'kode_buku'=>$request->kode_buku,
             'jumlah'=>$request->jumlah,
             'keterangan'=>$request->keterangan,
             'id_peminjaman'=>$request->id_peminjaman,
             $request->except('_token'),
+        ]);
+        $buku->update([
+            'stok' => $buku->stok - $request->jumlah,
         ]);
         return redirect('/dpeminjaman');
     }

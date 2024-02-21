@@ -27,10 +27,18 @@
                             <div class="form-group">
                                 <label for="">Password</label>
                                 <input type="password" class="form-control" value="{{$user->password}}" name="password" placeholder="Masukan Untuk Password" required>
+                                <br>
+                                @error('password')
+                                <div class="alert alert-danger">{{$message}}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="">No Telepon</label>
                                 <input type="number" class="form-control" value="{{$user->no_telp}}" name="no_telp" placeholder="Masukan Untuk No Telepon" required>
+                                <br>
+                                @error('no_telp')
+                                <div class="alert alert-danger">{{$message}}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="">Jabatan</label>

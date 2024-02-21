@@ -12,7 +12,7 @@
                             <h4>Edit Data Buku</h4>
                         </div>
                         <div class="card-body">
-                            <form action="/buku/{{$buku->id}}/update" method="post">
+                            <form action="/buku/{{$buku->id}}/update" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="">Judul</label>
@@ -44,6 +44,10 @@
                             <div class="form-group">
                                 <label for="">Stok</label>
                                 <input type="number" class="form-control" value="{{$buku->stok}}" name="stok" placeholder="Maukkan untuk sinopsis" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Unggah Foto</label>
+                                <input type="file" class="form-control" name="fotobuku" value="{{$buku->fotobuku}}">
                             </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                             <a href="/buku" class="btn btn-secondary">Cancel</a>

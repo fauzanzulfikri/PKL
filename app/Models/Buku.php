@@ -16,6 +16,7 @@ class Buku extends Model
         'sinopsis',
         'status',
         'stok',
+        'fotobuku',
     ];
     public function Buku()
     {

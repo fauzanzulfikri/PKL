@@ -36,7 +36,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create([
+        $validateData = $request->validate([
+            'password' => 'required|string|min:5',
+            'no_telp' => 'required|max:13',
+        ],[
+            'password.required' => 'Password harus lebih dari 5 Karakter',
+        ]);
+            User::create([
             'nama'=> $request->nama,
             'no_telp'=> $request->no_telp,
             'username'=> $request->username,
@@ -101,4 +107,8 @@ class UserController extends Controller
         $user->delete();
         return redirect('/user');
     }
+    public function __construct()
+{
+    $this->middleware('superadmin');
+}
 }

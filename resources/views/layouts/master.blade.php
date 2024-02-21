@@ -5,16 +5,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Perpustakaan Sekolah</title>
-    <link rel="stylesheet" href="{{asset('/assets/vendors/mdi/css/materialdesignicons.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('/assets/vendors/flag-icon-css/css/flag-icon.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('/assets/vendors/css/vendor.bundle.base.css')}}" />
-    <link rel="stylesheet" href="{{asset('/assets/vendors/font-awesome/css/font-awesome.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('/assets/vendors/sweetalert2/sweetalert2.min.css')}}">
-    <link rel="stylesheet" href="{{asset('/assets/vendors/datatable/dataTables.bootstrap4.min.css')}}">
-    <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}" />
-    <link rel="shortcut icon" href="{{asset('/assets/images/favicon.png')}}" />
+    <title>Breeze Admin</title>
+    <link rel="stylesheet" href="{{asset('assets/vendors/mdi/css/materialdesignicons.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/vendors/flag-icon-css/css/flag-icon.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.base.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/vendors/font-awesome/css/font-awesome.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -53,7 +53,7 @@
                                 <span class="profile-name">{{Auth()->User()->nama}}</span>
                             </a>
                             <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="/logout">
                                     <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
                             </div>
                         </li>
@@ -81,33 +81,39 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="{{asset('/assets/vendors/js/vendor.bundle.base.js')}}"></script>
+    <script src="{{asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="{{asset('/assets/vendors/chart.js/Chart.min.js')}}"></script>
-    <script src="{{asset('/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
-    <script src="{{asset('/assets/vendors/flot/jquery.flot.js')}}"></script>
-    <script src="{{asset('/assets/vendors/flot/jquery.flot.resize.js')}}"></script>
-    <script src="{{asset('/assets/vendors/flot/jquery.flot.categories.js')}}"></script>
-    <script src="{{asset('/assets/vendors/flot/jquery.flot.fillbetween.js')}}"></script>
-    <script src="{{asset('/assets/vendors/flot/jquery.flot.stack.js')}}"></script>
-    <script src="{{asset('/assets/vendors/flot/jquery.flot.pie.js')}}"></script>
-    <script src="{{asset('/assets/vendors/sweetalert2/sweetalert2.min.js')}}"></script>
-    <script src="{{asset('/assets/vendors/datatable/datatables.min.js')}}"></script>
+    <script src="{{asset('assets/vendors/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{asset('assets/vendors/flot/jquery.flot.js')}}"></script>
+    <script src="{{asset('assets/vendors/flot/jquery.flot.resize.js')}}"></script>
+    <script src="{{asset('assets/vendors/flot/jquery.flot.categories.js')}}"></script>
+    <script src="{{asset('assets/vendors/flot/jquery.flot.fillbetween.js')}}"></script>
+    <script src="{{asset('assets/vendors/flot/jquery.flot.stack.js')}}"></script>
+    <script src="{{asset('assets/vendors/flot/jquery.flot.pie.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="{{asset('/assets/js/off-canvas.js')}}"></script>
-    <script src="{{asset('/assets/js/hoverable-collapse.js')}}"></script>
-    <script src="{{asset('/assets/js/misc.js')}}"></script>
+    <script src="{{asset('assets/js/off-canvas.js')}}"></script>
+    <script src="{{asset('assets/js/hoverable-collapse.js')}}"></script>
+    <script src="{{asset('assets/js/misc.js')}}"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="{{asset('/assets/js/dashboard.js')}}"></script>
+    <script src="{{asset('assets/js/dashboard.js')}}"></script>
 
     <script>
         $(document).ready(function() {
             $('#example').dataTable();
         })
     </script>
+
+<script>
+    $(document).ready(function() {
+        $('.buku-select').select2();
+    });
+</script>
 
     <!-- Start:Pesan Berhasil -->
     <!-- <script>

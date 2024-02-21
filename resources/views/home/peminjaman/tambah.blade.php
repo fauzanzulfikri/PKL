@@ -17,15 +17,15 @@
 
 
                             <div class="form-group">
-                                <label for="">Nis</label>
+                                <label for="">Nama</label>
                                 <select name="nis" class="form-control">
                                     @foreach ($siswa as $s)
-                                    <option value="{{$s->nis}}">{{$s->nis}}</option>
+                                    <option value="{{$s->nis}}">{{$s->nama}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="">User</label>
+                                <label for="">Petugas</label>
                                 <select name="id_petugas" class="form-control">
                                     @foreach ($user as $u)
                                     <option value="{{$u->id}}">{{$u->nama}}</option>

@@ -37,6 +37,12 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
+        $img = $request->file('fotobuku');
+        $nama = hexdec(uniqid());
+        $ext = strtolower($img->getClientOriginalExtension());
+        $foto = $nama.'.'.$ext;
+        $img->move('gambar/buku/',$foto);
+
         Buku::create([
             'judul'=> $request->judul,
             'penulis'=> $request->penulis,
@@ -45,8 +51,10 @@ class BukuController extends Controller
             'sinopsis'=> $request->sinopsis,
             'status'=> $request->status,
             'stok'=> $request->stok,
+            'fotobuku' =>$foto,
             $request->except(['_token']),
-        ]);return redirect('/buku');
+        ]);
+        return redirect('/buku');
     }
 
     /**
@@ -81,6 +89,12 @@ class BukuController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $img = $request->file('fotobuku');
+        $nama = hexdec(uniqid());
+        $ext = strtolower($img->getClientOriginalExtension());
+        $foto = $nama.'.'.$ext;
+        $img->move('gambar/buku/',$foto);
+
         $buku = Buku::find($id);
         $buku->update([
             'judul'=> $request->judul,
@@ -90,6 +104,7 @@ class BukuController extends Controller
             'sinopsis'=> $request->sinopsis,
             'status'=> $request->status,
             'stok'=> $request->stok,
+            'fotobuku' => $foto,
             $request->except(['_token']),
         ]);return redirect('/buku');
     }

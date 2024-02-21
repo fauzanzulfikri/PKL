@@ -5,7 +5,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-20">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>Kelola Data Peminjaman</h4>
@@ -17,7 +17,7 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nis</th>
+                                            <th>Nama</th>
                                             <th>User</th>
                                             <th>Tanggal Pinjam</th>
                                             <th>Tanggal Kembali</th>
@@ -29,8 +29,8 @@
                                         @foreach ($peminjaman as $p)
                                                 <tr>
                                                     <td>{{$p->id}}</td>
-                                                    <td>{{$p->Siswa->nis}}</td>
-                                                    <td>{{$p->User->id}}</td>
+                                                    <td>{{$p->Siswa->nama}}</td>
+                                                    <td>{{$p->User->username}}</td>
                                                     <td>{{$p->tgl_pinjam}}</td>
                                                     <td>{{$p->tgl_kembali}}</td>
                                                     <td>{{$p->status}}</td>

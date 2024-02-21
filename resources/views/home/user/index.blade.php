@@ -33,7 +33,6 @@
                                                     <td>{{$u->jabatan}}</td>
                                                     <td>{{$u->username}}</td>
                                                     <td>
-
                                                     <a href="/user/{{$u->id}}/edit" class="btn btn-warning">Edit</a>
                                                     <a href="/user/{{$u->id}}/hapus" class="btn btn-danger" onclick="return confirm('Yakin diHapus?')">Hapus</a>
                                                 </td>

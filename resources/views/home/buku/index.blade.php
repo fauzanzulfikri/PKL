@@ -5,7 +5,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-20">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-header"><h1>Halaman Buku</h1>
                         <a href="/buku/tambah" class="btn btn-primary">Tambah Data</a></div>
@@ -15,6 +15,7 @@
                                     <thead>
                                         <tr>
                                             <th>Kode Buku</th>
+                                            <th>Foto</th>
                                             <th>Judul</th>
                                             <th>Penulis</th>
                                             <th>Penerbit</th>
@@ -29,6 +30,7 @@
                                         @foreach ($buku as $b)
                                                 <tr>
                                                     <td>{{$b->id}}</td>
+                                                    <td><img src="{{asset("gambar/buku/$b->fotobuku")}}" style="width:200px; height:230px;" alt=""></td>
                                                     <td>{{$b->judul}}</td>
                                                     <td>{{$b->penulis}}</td>
                                                     <td>{{$b->penerbit}}</td>

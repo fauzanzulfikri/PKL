@@ -16,6 +16,6 @@ class DasboardController extends Controller
         $jumlah_peminjaman = Peminjaman::count();
         $jumlah_pengembalian = Pengembalian::count();
         $peminjaman = Peminjaman::all();
-        return view('home.dashboard', compact(['jumlah_siswa','jumlah_buku','jumlah_peminjaman','jumlah_pengembalian','peminjaman']));
+        return view('layouts.master', compact(['jumlah_siswa','jumlah_buku','jumlah_peminjaman','jumlah_pengembalian','peminjaman']));
     }
 }

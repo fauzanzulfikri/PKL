@@ -12,12 +12,12 @@
                             <form action="/dpeminjaman/simpan" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="">Buku</label>
-                                    <select name="kode_buku" class="form-control">
-                                        @foreach ($buku as $b)
-                                        <option value="{{$b->id}}">{{$b->judul}}</option>
-                                        @endforeach
-                                    </select>
+                                    <label for="kode_buku">Pilih Buku:</label>
+                                   <select name="kode_buku" class="form-control">
+                                   @foreach($buku as $b)
+                                   <option value="{{$b->id}}">{{ $b->judul }}</option>
+                                   @endforeach
+                                   </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Jumlah</label>
@@ -45,4 +45,10 @@
         </div>
     </section>
 </div>
+<script>
+    $(document).ready(function() {
+        $('.kode_buku_select2').select2();
+    });
+</script>
+
 @endsection
